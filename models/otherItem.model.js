@@ -13,6 +13,11 @@ const otherItemSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+    enum: ['drink', 'other']
   }
 }, { timestamps: true })
 
