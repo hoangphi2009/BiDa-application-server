@@ -1,6 +1,6 @@
-import { Table } from '../models/table.model.js'; // Import model Table
+import { Table } from '../models/table.model.js';
 
-export const createTableService = async (tableData) => {
+export const createTableServiceService = async (tableData) => {
   // eslint-disable-next-line no-useless-catch
   try {
     const { tableId, tableName, tableNumber, isAvailable } = tableData;

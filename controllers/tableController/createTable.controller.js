@@ -1,10 +1,10 @@
-import { createTableService } from '../../services/createTable.service.js'
+import { createTableServiceService } from '../../services/createTableService.service.js'
 
 export const createTable = async (req, res) => {
   try {
     const tableData = req.body;
     // eslint-disable-next-line new-cap
-    const newTable = await createTableService(tableData);
+    const newTable = await createTableServiceService(tableData);
 
     return res.status(200).json({
       message: 'Successfully created table',
