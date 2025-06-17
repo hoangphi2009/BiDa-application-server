@@ -1,4 +1,4 @@
-import { createTableService } from '../../services/createTable.service.js'
+import { createTableService } from '../../services/createTableService.service.js'
 
 export const createTable = async (req, res) => {
   try {
