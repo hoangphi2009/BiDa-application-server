@@ -1,10 +1,10 @@
-import { deleteTabelService } from '../../services/deleteTableService.service.js';
+import { deleteTableService } from '../../services/deleteTableService.service.js';
 
 export const deletedTable = async (req, res) => {
   try {
     const { tableId } = req.params;
     console.log('tableId:', tableId);
-    const result = await deleteTabelService(tableId);
+    const result = await deleteTableService(tableId);
     return res.status(200).json({
       message: `Successfully deleted table ${tableId} service`,
       result,
