@@ -4,7 +4,7 @@ export const getTableByIdService = async (tableId) => {
   // eslint-disable-next-line no-useless-catch
   try {
     const existingTable = await Table.findOne({ table_id: tableId });
-    if (existingTable == null) {
+    if (!existingTable) {
       throw new Error(`Table ${tableId} does not exist`);
     }
     return existingTable;
