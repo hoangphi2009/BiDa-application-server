@@ -1,24 +1,22 @@
-import { Table } from "../models/table.model.js";
 import { getTableByIdService } from "./getTableById.service.js";
 
-export const updateTableByIdService = async (tableId, tableData) => {
+export const updateTableByIdService = async (tableIdParam, tableData) => {
   // eslint-disable-next-line no-useless-catch
   try {
-    const table = await getTableByIdService(tableId);
-    if (!table) {
-      throw new Error(
-        `Can not update table with id ${tableId} due to table not found`
-      );
+    const tableById = await getTableByIdService(tableIdParam);
+    if (!tableById) return `Cannot update table with id ${tableIdParam} because it was not found`;
+    if (
+      (tableData.table_name && tableById.table_name === tableData.table_name) &&
+      (tableData.table_number && tableById.table_number === tableData.table_number) &&
+      (tableData.is_available && tableById.is_available === tableData.is_available)
+    ) {
+      return `No changes to update`;
     }
-    const tableUpdated = await Table.findOneAndUpdate(
-      { table_id: tableId },
-      tableData,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-    return tableUpdated;
+    if (tableData.table_name && tableById.table_name !== tableData.table_name) tableById.table_name = tableData.table_name;
+    if (tableData.table_number && tableById.table_number !== tableData.table_number) tableById.table_number = tableData.table_number;
+    if (tableData.is_available && tableById.is_available !== tableData.is_available) tableById.is_available = tableData.is_available;
+    await tableById.save();
+    return tableById;
   } catch (error) {
     throw error;
   }
