@@ -6,10 +6,12 @@ export const deleteTableService = async (tableId) => {
     const table = await Table.findOne({ table_id: tableId });
     console.log(table);
     if (!table) {
-      throw new Error(`Table ${tableId} does not exist`);
+      return `Table ${tableId} does not exist`;
     }
     await Table.deleteOne({ table_id: tableId });
-    return { message: 'Deleted table' };
+    return {
+      message: `Deleted table`,
+    };
   } catch (error) {
     throw error;
   }

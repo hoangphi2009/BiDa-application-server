@@ -1,4 +1,4 @@
-import { getTableByIdService } from "./getTableById.service.js";
+import { getTableByIdService } from './getTableById.service.js';
 
 export const updateTableByIdService = async (tableIdParam, tableData) => {
   // eslint-disable-next-line no-useless-catch
