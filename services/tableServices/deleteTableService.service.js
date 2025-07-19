@@ -4,7 +4,6 @@ export const deleteTableService = async (tableId) => {
   // eslint-disable-next-line no-useless-catch
   try {
     const table = await Table.findOne({ table_id: tableId });
-    console.log(table);
     if (!table) {
       return `Table ${tableId} does not exist`;
     }

@@ -3,7 +3,6 @@ import { deleteTableService } from '../../services/tableServices/deleteTableServ
 export const deletedTable = async (req, res) => {
   try {
     const { tableId } = req.params;
-    console.log('tableId:', tableId);
     const result = await deleteTableService(tableId);
     if (result === `Table ${tableId} does not exist`) {
       return res.status(400).json({
