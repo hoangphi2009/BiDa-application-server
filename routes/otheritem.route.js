@@ -3,6 +3,6 @@ import { createOtherItem } from '../controllers/otheritemController/createOtherI
 
 const router = express.Router();
 
-router.post('/otheritems', createOtherItem);
+router.post('/register', createOtherItem);
 
 export default router;
