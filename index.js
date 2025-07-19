@@ -4,7 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './utils/db.js';
 import tableRoute from './routes/table.route.js';
-import { TABLE_API } from './utils/constant.js';
+import { TABLE_API, OTHER_ITEM_API } from './utils/constant.js';
+import otherItemRoute from './routes/otheritem.route.js';
 dotenv.config();
 const app = express();
 
@@ -22,6 +23,7 @@ const PORT = 3000;
 
 // api's
 app.use(TABLE_API, tableRoute);
+app.use(OTHER_ITEM_API, otherItemRoute);
 
 app.listen(PORT, () => {
   connectDB();

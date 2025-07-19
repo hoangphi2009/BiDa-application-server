@@ -1,4 +1,4 @@
-import { deleteTableService } from '../../services/deleteTableService.service.js';
+import { deleteTableService } from '../../services/tableServices/deleteTableService.service.js';
 
 export const deletedTable = async (req, res) => {
   try {

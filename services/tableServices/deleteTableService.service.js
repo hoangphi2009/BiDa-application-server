@@ -1,4 +1,4 @@
-import { Table } from '../models/table.model.js';
+import { Table } from '../../models/table.model.js';
 
 export const deleteTableService = async (tableId) => {
   // eslint-disable-next-line no-useless-catch
@@ -10,7 +10,7 @@ export const deleteTableService = async (tableId) => {
     }
     await Table.deleteOne({ table_id: tableId });
     return {
-      message: `Deleted table`,
+      message: 'Deleted table',
     };
   } catch (error) {
     throw error;

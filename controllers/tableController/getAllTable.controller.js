@@ -1,4 +1,4 @@
-import { getAllTableService } from '../../services/getAllTableService.service.js';
+import { getAllTableService } from '../../services/tableServices/getAllTableService.service.js';
 
 export const getAllTables = async (req, res) => {
   try {

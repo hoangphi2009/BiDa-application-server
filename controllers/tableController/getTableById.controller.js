@@ -1,4 +1,4 @@
-import { getTableByIdService } from '../../services/getTableById.service.js';
+import { getTableByIdService } from '../../services/tableServices/getTableById.service.js';
 
 export const getTableById = async (req, res) => {
   try {
@@ -16,7 +16,7 @@ export const getTableById = async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({
-      message: `Internal server error`,
+      message: 'Internal server error',
       error: error.message,
     });
   }
