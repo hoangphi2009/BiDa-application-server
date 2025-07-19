@@ -1,4 +1,4 @@
-import { getTableByIdService } from "./getTableById.service.js";
+import { getTableByIdService } from './getTableById.service.js';
 
 export const updateTableByIdService = async (tableIdParam, tableData) => {
   // eslint-disable-next-line no-useless-catch
@@ -10,7 +10,7 @@ export const updateTableByIdService = async (tableIdParam, tableData) => {
       (tableData.table_number && tableById.table_number === tableData.table_number) &&
       (tableData.is_available && tableById.is_available === tableData.is_available)
     ) {
-      return `No changes to update`;
+      return 'No changes to update';
     }
     if (tableData.table_name && tableById.table_name !== tableData.table_name) tableById.table_name = tableData.table_name;
     if (tableData.table_number && tableById.table_number !== tableData.table_number) tableById.table_number = tableData.table_number;

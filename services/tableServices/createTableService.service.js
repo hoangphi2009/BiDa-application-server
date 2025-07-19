@@ -1,16 +1,21 @@
-import { Table } from '../models/table.model.js';
+import { Table } from '../../models/table.model.js';
 
 export const createTableService = async (tableData) => {
   // eslint-disable-next-line no-useless-catch
   try {
-    const { tableId, tableName, tableNumber, isAvailable } = tableData;
-    if (!tableId || !tableName) {
-      throw new Error('Table ID and Table Name are required');
+    const {
+      table_id: tableId,
+      table_name: tableName,
+      table_number: tableNumber,
+      is_available: isAvailable,
+    } = tableData;
+    if (!tableId || !tableName || !tableNumber) {
+      return 'Table ID, Table Name and Table Number are required';
     }
 
     const existingTable = await Table.findOne({ table_id: tableId });
     if (existingTable) {
-      throw new Error(`Table with ID ${tableId} already exists`);
+      return `Table with ID ${tableId} already exists`;
     }
 
     const newTable = new Table({

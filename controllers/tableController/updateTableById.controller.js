@@ -1,10 +1,10 @@
-import { updateTableByIdService } from "../../services/updateTableById.service.js";
+import { updateTableByIdService } from '../../services/tableServices/updateTableById.service.js';
 
 export const updateTableById = async (req, res) => {
   try {
     const { tableId } = req.params;
     const tableUpdated = await updateTableByIdService(tableId, req.body);
-    if (tableUpdated === `No changes to update`) {
+    if (tableUpdated === 'No changes to update') {
       return res.status(400).json({
         message: tableUpdated,
         success: false,
@@ -26,7 +26,7 @@ export const updateTableById = async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({
-      message: `Internal Server Error`,
+      message: 'Internal Server Error',
       error: error.message,
     });
   }
