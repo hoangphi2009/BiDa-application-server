@@ -1,4 +1,4 @@
-import { OtherItem } from '../../models/otherItem.model.js';
+import { OtherItem } from "../../models/otherItem.model.js";
 
 export const createOtherItemService = async (otherItemData) => {
   // eslint-disable-next-line no-useless-catch
@@ -17,13 +17,11 @@ export const createOtherItemService = async (otherItemData) => {
       return `OtherItem with ID ${itemId} already exists`;
     }
     const categoryEnum = OtherItem.schema.path('category').enumValues;
-    let validCategory = false;
-    for (const categoryElement of categoryEnum) {
-      if (itemCategory === categoryElement) {
-        validCategory = true;
-        break;
+    const validCategory = categoryEnum.forEach((element) => {
+      if (element === itemCategory) {
+        return true;
       }
-    }
+    });
     if (!validCategory) {
       return 'Category must be one of: drink, other';
     }
