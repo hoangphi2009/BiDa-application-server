@@ -1,4 +1,4 @@
-import { OtherItem } from '../models/otherItem.model.js';
+import { OtherItem } from '../../models/otherItem.model.js';
 
 export const createItemService = async ({ item_id, item_name, price, category }) => {
   if (!item_id || !item_name || !price || !category) {

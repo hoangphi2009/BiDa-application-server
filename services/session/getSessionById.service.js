@@ -1,4 +1,4 @@
-import { PlayingSession } from '../models/playingSession.model.js';
+import { PlayingSession } from '../../models/playingSession.model.js';
 
 export const getSessionByIdService = async (sessionId) => {
   const session = await PlayingSession.findOne({ session_id: sessionId })

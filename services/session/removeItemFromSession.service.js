@@ -1,5 +1,5 @@
-import { PlayingSession } from '../models/playingSession.model.js';
-import { SessionItems } from '../models/sessionItems.model.js';
+import { PlayingSession } from '../../models/playingSession.model.js';
+import { SessionItems } from '../../models/sessionItems.model.js';
 
 export const removeItemFromSessionService = async (sessionId, sessionItemId) => {
   const session = await PlayingSession.findOne({ session_id: sessionId });

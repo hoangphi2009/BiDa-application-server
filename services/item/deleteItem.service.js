@@ -1,4 +1,4 @@
-import { OtherItem } from '../models/otherItem.model.js';
+import { OtherItem } from '../../models/otherItem.model.js';
 
 export const deleteItemService = async (itemId) => {
   const item = await OtherItem.findOne({ item_id: itemId });

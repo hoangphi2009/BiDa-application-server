@@ -1,4 +1,4 @@
-import { Table } from '../models/table.model.js';
+import { Table } from '../../models/table.model.js';
 
 export const getAllTableService = async () => {
   // eslint-disable-next-line no-useless-catch

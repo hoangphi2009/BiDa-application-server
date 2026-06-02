@@ -1,5 +1,5 @@
-import { PlayingSession } from '../models/playingSession.model.js';
-import { Table } from '../models/table.model.js';
+import { PlayingSession } from '../../models/playingSession.model.js';
+import { Table } from '../../models/table.model.js';
 
 export const getAllSessionsService = async ({ tableId, date, status } = {}) => {
   const filter = {};

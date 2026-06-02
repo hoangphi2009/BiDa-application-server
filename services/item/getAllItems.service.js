@@ -1,4 +1,4 @@
-import { OtherItem } from '../models/otherItem.model.js';
+import { OtherItem } from '../../models/otherItem.model.js';
 
 export const getAllItemsService = async ({ category } = {}) => {
   const filter = {};

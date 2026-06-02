@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Table } from '../models/table.model.js';
-import { PlayingSession } from '../models/playingSession.model.js';
+import { Table } from '../../models/table.model.js';
+import { PlayingSession } from '../../models/playingSession.model.js';
 
 export const openSessionService = async ({ table_id }) => {
   const table = await Table.findOne({ table_id });
