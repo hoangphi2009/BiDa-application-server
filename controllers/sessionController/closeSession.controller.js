@@ -1,4 +1,4 @@
-import { closeSessionService } from '../../services/closeSession.service.js';
+import { closeSessionService } from '../../services/session/closeSession.service.js';
 
 export const closeSession = async (req, res) => {
   try {

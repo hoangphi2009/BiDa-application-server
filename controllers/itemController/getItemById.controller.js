@@ -1,4 +1,4 @@
-import { getItemByIdService } from '../../services/getItemById.service.js';
+import { getItemByIdService } from '../../services/item/getItemById.service.js';
 
 export const getItemById = async (req, res) => {
   try {

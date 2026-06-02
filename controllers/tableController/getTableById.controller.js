@@ -1,4 +1,4 @@
-import { getTableByIdService } from "../../services/getTableById.service.js";
+import { getTableByIdService } from '../../services/table/getTableById.service.js';
 
 export const getTableById = async (req, res) => {
   try {

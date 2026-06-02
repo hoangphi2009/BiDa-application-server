@@ -1,4 +1,4 @@
-import { getAllItemsService } from '../../services/getAllItems.service.js';
+import { getAllItemsService } from '../../services/item/getAllItems.service.js';
 
 export const getAllItems = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import { deleteItemService } from '../../services/deleteItem.service.js';
+import { deleteItemService } from '../../services/item/deleteItem.service.js';
 
 export const deleteItem = async (req, res) => {
   try {

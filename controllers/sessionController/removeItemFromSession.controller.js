@@ -1,4 +1,4 @@
-import { removeItemFromSessionService } from '../../services/removeItemFromSession.service.js';
+import { removeItemFromSessionService } from '../../services/session/removeItemFromSession.service.js';
 
 export const removeItemFromSession = async (req, res) => {
   try {

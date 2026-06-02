@@ -1,4 +1,4 @@
-import { openSessionService } from '../../services/openSession.service.js';
+import { openSessionService } from '../../services/session/openSession.service.js';
 
 export const openSession = async (req, res) => {
   try {

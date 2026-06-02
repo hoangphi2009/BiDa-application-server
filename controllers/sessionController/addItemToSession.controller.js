@@ -1,4 +1,4 @@
-import { addItemToSessionService } from '../../services/addItemToSession.service.js';
+import { addItemToSessionService } from '../../services/session/addItemToSession.service.js';
 
 export const addItemToSession = async (req, res) => {
   try {

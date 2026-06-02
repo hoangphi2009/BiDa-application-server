@@ -1,4 +1,4 @@
-import { getSessionByIdService } from '../../services/getSessionById.service.js';
+import { getSessionByIdService } from '../../services/session/getSessionById.service.js';
 
 export const getSessionById = async (req, res) => {
   try {
