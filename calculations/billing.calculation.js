@@ -14,3 +14,10 @@ export const calcSessionCost = (totalMinutes, pricePerHour) => {
   const rawCost = totalMinutes * pricePerMinute;
   return Math.ceil(rawCost / 500) * 500;
 };
+
+/**
+ * Tính tiền sản phẩm: đơn giá × số lượng
+ */
+export const calcItemCost = (unitPrice, quantity) => {
+  return unitPrice * quantity;
+};

@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import { PlayingSession } from '../models/playingSession.model.js';
-import { OtherItem } from '../models/otherItem.model.js';
-import { SessionItems } from '../models/sessionItems.model.js';
+import { PlayingSession } from '../../models/playingSession.model.js';
+import { OtherItem } from '../../models/otherItem.model.js';
+import { SessionItems } from '../../models/sessionItems.model.js';
+import { calcItemCost } from '../../calculations/billing.calculation.js';
 
 export const addItemToSessionService = async (sessionId, { item_id, quantity }) => {
   if (!item_id || !quantity || quantity < 1) {
@@ -16,7 +17,7 @@ export const addItemToSessionService = async (sessionId, { item_id, quantity }) 
   if (!item) throw new Error(`Item ${item_id} does not exist`);
 
   const unitPrice = item.price;
-  const itemTotalCost = unitPrice * quantity;
+  const itemTotalCost = calcItemCost(unitPrice, quantity);
 
   const sessionItem = new SessionItems({
     session_id: session._id,
