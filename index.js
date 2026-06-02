@@ -5,7 +5,8 @@ import dotenv from 'dotenv';
 import connectDB from './utils/db.js';
 import tableRoute from './routes/table.route.js';
 import sessionRoute from './routes/session.route.js';
-import { TABLE_API, SESSION_API } from './utils/constant.js';
+import itemRoute from './routes/item.route.js';
+import { TABLE_API, SESSION_API, ITEM_API } from './utils/constant.js';
 dotenv.config();
 const app = express();
 
@@ -24,6 +25,7 @@ const PORT = 3000;
 // api's
 app.use(TABLE_API, tableRoute);
 app.use(SESSION_API, sessionRoute);
+app.use(ITEM_API, itemRoute);
 
 app.listen(PORT, () => {
   connectDB();
