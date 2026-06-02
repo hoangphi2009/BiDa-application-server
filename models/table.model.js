@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+const { Schema } = mongoose;
+
 const tableSchema = new mongoose.Schema({
   table_id: {
     type: String,
@@ -14,9 +16,19 @@ const tableSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  is_available: {
-    type: Boolean,
-    default: true
+  table_type: {
+    type: String,
+    default: 'standard'
+  },
+  status: {
+    type: String,
+    enum: ['available', 'playing', 'maintenance'],
+    default: 'available'
+  },
+  hourly_rate_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'HourlyRate',
+    default: null
   }
 }, { timestamps: true });
 

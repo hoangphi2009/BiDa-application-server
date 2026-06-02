@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
+
 const playingSessionSchema = new mongoose.Schema({
   session_id: {
     type: String,
@@ -15,7 +16,7 @@ const playingSessionSchema = new mongoose.Schema({
   hourly_rate_id: {
     type: Schema.Types.ObjectId,
     ref: 'HourlyRate',
-    required: false
+    required: true
   },
   start_time: {
     type: Date,
@@ -24,15 +25,16 @@ const playingSessionSchema = new mongoose.Schema({
   },
   end_time: {
     type: Date,
-    default: Date.now,
-    required: true
+    default: null
   },
   total_playing_time_minutes: {
     type: Number,
+    default: null
   },
   total_session_cost: {
     type: Number,
+    default: null
   }
-}, { timestamps: true })
+}, { timestamps: true });
 
-export const PlayingSession = mongoose.model('PlayingSession', playingSessionSchema)
+export const PlayingSession = mongoose.model('PlayingSession', playingSessionSchema);

@@ -1,20 +1,22 @@
-import { getTableByIdService } from "./getTableById.service.js";
+import { getTableByIdService } from './getTableById.service.js';
 
 export const updateTableByIdService = async (tableIdParam, tableData) => {
-  // eslint-disable-next-line no-useless-catch
   try {
     const tableById = await getTableByIdService(tableIdParam);
-    if (!tableById) return `Cannot update table with id ${tableIdParam} because it was not found`;
-    if (
-      (tableData.table_name && tableById.table_name === tableData.table_name) &&
-      (tableData.table_number && tableById.table_number === tableData.table_number) &&
-      (tableData.is_available && tableById.is_available === tableData.is_available)
-    ) {
-      return `No changes to update`;
+    if (!tableById) return `Can not update table with id ${tableIdParam} due to table not found`;
+
+    const updatableFields = ['table_name', 'table_number', 'table_type', 'status', 'hourly_rate_id'];
+    let hasChanges = false;
+
+    for (const field of updatableFields) {
+      if (tableData[field] !== undefined && String(tableById[field]) !== String(tableData[field])) {
+        tableById[field] = tableData[field];
+        hasChanges = true;
+      }
     }
-    if (tableData.table_name && tableById.table_name !== tableData.table_name) tableById.table_name = tableData.table_name;
-    if (tableData.table_number && tableById.table_number !== tableData.table_number) tableById.table_number = tableData.table_number;
-    if (tableData.is_available && tableById.is_available !== tableData.is_available) tableById.is_available = tableData.is_available;
+
+    if (!hasChanges) return `No changes to update`;
+
     await tableById.save();
     return tableById;
   } catch (error) {

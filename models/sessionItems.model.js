@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
+
 const sessionItemsSchema = new mongoose.Schema({
   session_id: {
     type: Schema.Types.ObjectId,
@@ -16,8 +17,18 @@ const sessionItemsSchema = new mongoose.Schema({
     ref: 'OtherItem',
     required: true
   },
-  item_total_cost: { type: Number },
-  total_items: { type: Number },
-}, { timestamps: true })
+  unit_price: {
+    type: Number,
+    required: true
+  },
+  total_items: {
+    type: Number,
+    required: true
+  },
+  item_total_cost: {
+    type: Number,
+    required: true
+  }
+}, { timestamps: true });
 
-export const SessionItems = mongoose.model('SessionItems', sessionItemsSchema)
+export const SessionItems = mongoose.model('SessionItems', sessionItemsSchema);
