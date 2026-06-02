@@ -7,7 +7,8 @@ import tableRoute from './routes/table.route.js';
 import sessionRoute from './routes/session.route.js';
 import itemRoute from './routes/item.route.js';
 import invoiceRoute from './routes/invoice.route.js';
-import { TABLE_API, SESSION_API, ITEM_API, INVOICE_API } from './utils/constant.js';
+import reportRoute from './routes/report.route.js';
+import { TABLE_API, SESSION_API, ITEM_API, INVOICE_API, REPORT_API } from './utils/constant.js';
 dotenv.config();
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(TABLE_API, tableRoute);
 app.use(SESSION_API, sessionRoute);
 app.use(ITEM_API, itemRoute);
 app.use(INVOICE_API, invoiceRoute);
+app.use(REPORT_API, reportRoute);
 
 app.listen(PORT, () => {
   connectDB();
